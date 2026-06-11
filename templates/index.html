@@ -1,82 +1,96 @@
 {% extends "base.html" %}
-{% block title %}Inicio – Gestión de Usuarios{% endblock %}
+{% block title %}Inicio – Tecnología y Desarrollo Web{% endblock %}
 
 {% block content %}
+
 <!-- Hero -->
 <div class="card mb-4 text-white" style="background: linear-gradient(135deg, #1a3c5e, #2e7dbf);">
   <div class="card-body py-5 text-center">
-    <i class="bi bi-people-fill" style="font-size: 3rem;"></i>
-    <h1 class="mt-2 fw-bold">Gestión de Usuarios</h1>
-    <p class="lead mb-0">Sistema de registro y consulta conectado a PostgreSQL</p>
+    <i class="bi bi-code-slash" style="font-size: 3rem;"></i>
+    <h1 class="mt-2 fw-bold">Tecnología y Desarrollo Web</h1>
+    <p class="lead mb-1">Plataforma de gestión de usuarios para programas de formación tecnológica</p>
+    <a href="{{ url_for('usuarios') }}" class="btn btn-light btn-lg mt-3 fw-bold">
+      <i class="bi bi-person-plus me-2"></i>Ir al Registro de Usuarios
+    </a>
   </div>
 </div>
 
-<!-- Contador -->
-<div class="row mb-4 justify-content-center">
+<!-- Tarjetas informativas -->
+<div class="row g-4 mb-4">
   <div class="col-md-4">
-    <div class="card text-center py-3">
+    <div class="card h-100 text-center p-3">
       <div class="card-body">
-        <i class="bi bi-database-fill text-primary" style="font-size: 2rem;"></i>
-        <h2 class="fw-bold mt-2">{{ total }}</h2>
-        <p class="text-muted mb-0">Usuarios registrados en BD</p>
+        <i class="bi bi-globe text-primary" style="font-size: 2.2rem;"></i>
+        <h5 class="fw-bold mt-3">Desarrollo Web</h5>
+        <p class="text-muted">Aprende a construir aplicaciones web modernas usando HTML, CSS, JavaScript y frameworks como Flask, Django o React.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card h-100 text-center p-3">
+      <div class="card-body">
+        <i class="bi bi-database-fill text-primary" style="font-size: 2.2rem;"></i>
+        <h5 class="fw-bold mt-3">Bases de Datos</h5>
+        <p class="text-muted">Domina el manejo de bases de datos relacionales como PostgreSQL y MySQL, así como bases NoSQL como MongoDB.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card h-100 text-center p-3">
+      <div class="card-body">
+        <i class="bi bi-cloud-upload-fill text-primary" style="font-size: 2.2rem;"></i>
+        <h5 class="fw-bold mt-3">Despliegue en la Nube</h5>
+        <p class="text-muted">Despliega tus aplicaciones en plataformas cloud como Render, Railway o AWS usando Docker y GitHub Actions.</p>
       </div>
     </div>
   </div>
 </div>
 
-<div class="row g-4">
-  <!-- Registro desde módulo principal -->
+<!-- Fila secundaria -->
+<div class="row g-4 mb-4">
   <div class="col-md-6">
-    <div class="card h-100">
-      <div class="card-header fw-bold bg-white border-bottom">
-        <i class="bi bi-person-plus-fill text-primary me-2"></i>Registro Rápido
-      </div>
+    <div class="card h-100 p-3">
       <div class="card-body">
-        <form action="{{ url_for('registro_rapido') }}" method="POST">
-          <div class="mb-3">
-            <label class="form-label">Nombre <span class="text-danger">*</span></label>
-            <input type="text" name="nombre" class="form-control" placeholder="Ej: Juan Pérez" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Email <span class="text-danger">*</span></label>
-            <input type="email" name="email" class="form-control" placeholder="correo@ejemplo.com" required>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Teléfono</label>
-            <input type="text" name="telefono" class="form-control" placeholder="3001234567">
-          </div>
-          <button type="submit" class="btn btn-primary w-100">
-            <i class="bi bi-save me-1"></i>Registrar Usuario
-          </button>
-        </form>
+        <h5 class="fw-bold"><i class="bi bi-laptop text-primary me-2"></i>Tecnologías que usamos</h5>
+        <ul class="list-unstyled mt-3 text-muted">
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Python + Flask</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>PostgreSQL</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>HTML5 + Bootstrap 5</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>GitHub + Render</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-success me-2"></i>Docker</li>
+        </ul>
       </div>
     </div>
   </div>
-
-  <!-- Consulta desde módulo principal -->
   <div class="col-md-6">
-    <div class="card h-100">
-      <div class="card-header fw-bold bg-white border-bottom">
-        <i class="bi bi-search text-primary me-2"></i>Consulta Rápida
-      </div>
-      <div class="card-body d-flex flex-column">
-        <form action="{{ url_for('consulta_rapida') }}" method="GET">
-          <div class="input-group mb-3">
-            <input type="text" name="q" class="form-control" placeholder="Buscar por nombre o email…">
-            <button class="btn btn-primary" type="submit">
-              <i class="bi bi-search"></i>
-            </button>
+    <div class="card h-100 p-3">
+      <div class="card-body">
+        <h5 class="fw-bold"><i class="bi bi-bar-chart-fill text-primary me-2"></i>¿Por qué aprender desarrollo web?</h5>
+        <p class="text-muted mt-3">El desarrollo web es una de las habilidades más demandadas del mercado laboral actual. Con conocimientos en frontend y backend puedes construir soluciones digitales completas, trabajar de forma remota y participar en proyectos a nivel global.</p>
+        <div class="d-flex gap-3 mt-3">
+          <div class="text-center">
+            <h4 class="fw-bold text-primary mb-0">+80%</h4>
+            <small class="text-muted">Empleabilidad</small>
           </div>
-        </form>
-        <p class="text-muted small">Busca un usuario por nombre o correo electrónico.</p>
-        <div class="mt-auto">
-          <hr>
-          <a href="{{ url_for('usuarios') }}" class="btn btn-outline-primary w-100">
-            <i class="bi bi-list-ul me-1"></i>Ver todos los usuarios
-          </a>
+          <div class="text-center">
+            <h4 class="fw-bold text-primary mb-0">100%</h4>
+            <small class="text-muted">Remoto posible</small>
+          </div>
+          <div class="text-center">
+            <h4 class="fw-bold text-primary mb-0">{{ total }}</h4>
+            <small class="text-muted">Usuarios en BD</small>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- CTA final -->
+<div class="text-center mb-4">
+  <a href="{{ url_for('usuarios') }}" class="btn btn-primary btn-lg px-5">
+    <i class="bi bi-person-lines-fill me-2"></i>Gestionar Usuarios
+  </a>
+</div>
+
 {% endblock %}
